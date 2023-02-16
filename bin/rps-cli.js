@@ -42,9 +42,9 @@ function rps(shot) {
       console.log(helpText + "\n" + rulesText);
       process.exit();
     } else {
-      result.gameResult = gameResult;
       result.player = player1.shot;
       result.opponent = player2.shot;
+      result.result = gameResult;
     }
   } catch (e) {
     if (e instanceof RangeError) {
@@ -54,7 +54,7 @@ function rps(shot) {
     }
   }
 
-  return result;
+  return JSON.stringify(result);
 }
 
 class GameMaker {
@@ -94,7 +94,11 @@ class GameMaker {
   static validateShot(player) {
     if (!player.shot) {
       throw new RangeError("shot out of range");
-    } else if (!(player.shot in this.key)) {
+    }
+
+    player.shot = player.shot.toLowerCase();
+
+    if (!(player.shot in this.key)) {
       return false;
     } else {
       return true;
