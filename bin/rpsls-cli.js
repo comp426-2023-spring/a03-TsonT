@@ -16,7 +16,7 @@ Examples:
   node-rpsls rock   Return JSON with results for RPSLS played against a simulated opponent.
                     e.g {"player":"rock","opponent":"Spock","result":"lose"}`;
 
-let rulesText = `Rules for the Lizard-Spock Espansion of Rock Paper Scissors:
+let rulesText = `Rules for the Lizard-Spock Expansion of Rock Paper Scissors:
 
 - Scissors CUTS Paper
 - Paper COVERS Rock
